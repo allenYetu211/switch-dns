@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.vscode
+# electron
+# lib
+# src
+# .babelrc
+
+# dev-runner.js
+# rollup.config.js
