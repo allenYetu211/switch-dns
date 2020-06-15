@@ -2,6 +2,19 @@ import { app, BrowserWindow }  from 'electron';
 import ComponentApp from './component/ipc';
 import devConfig from './devConfig/index';
 
+import fs from 'fs';
+
+const { ipcMain } = require('electron')
+ipcMain.on('asynchronous-message', (event, arg) => {
+  console.log('fs','__dirname::', `${__dirname}/../public/robots.txt`)
+  fs.readFile(`${__dirname}/../public/robots.txt`, function (err, data) {
+    if (err) {
+        return console.error(err);
+    }
+    event.reply('asynchronous-reply', data.toString())
+ });
+})
+
 
 const createWindow  = () => {
   const win = new BrowserWindow({
