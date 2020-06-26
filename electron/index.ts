@@ -1,5 +1,7 @@
 import { app, BrowserWindow }  from 'electron';
 import ipcGetLocalIp from './component/ipcGetLocalIp';
+import ipcChangeDns from './component/ipcChangeDns';
+import ipcSwitchLocalDns from './component/ipcSwitchLocalDns';
 import devConfig from './devConfig/index';
 
 // import fs from 'fs';
@@ -25,22 +27,17 @@ const createWindow  = () => {
     }
   })
 
-
   if (process.env.NODE_ENV === 'development') {
     devConfig.devInit(win)
   }
-
-
-  
-  
-
-
 }
 
 app.whenReady()
    .then(createWindow)
    .then(() => {
       ipcGetLocalIp()
+      ipcChangeDns()
+      ipcSwitchLocalDns()
    })
 
 app.on('activate', () => {
