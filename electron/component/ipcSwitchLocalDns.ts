@@ -154,8 +154,8 @@ const handleHostConfig = (env: string) => {
       } catch (e) {
         // 修改权限
         const cmd = [
-          `echo 211 | sudo -S chmod 777 ${HOSTPATH}`
-          // , `echo 211 | sudo -S chmod 644 ${HOSTPATH}`
+          `echo xxx | sudo -S chmod 777 ${HOSTPATH}`
+          // , `echo ${pwd} | sudo -S chmod 644 ${HOSTPATH}`
           // , 'rm -rf ' + tmp_fn
         ].join(' && ')
         exec(cmd, async (error: any, stout: any, stderr) => {
